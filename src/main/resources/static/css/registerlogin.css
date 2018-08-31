@@ -1,0 +1,159 @@
+html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-attachment: fixed;
+    height: 100%;
+    background: -moz-linear-gradient(top, #f7f8f9 0%, #CBC5C1 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f7f8f9 0%,#CBC5C1 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f7f8f9 0%,#CBC5C1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#898989',GradientType=0 ); /* IE6-9 */
+}
+
+.jumbotron {
+    background: linear-gradient(#fdfeff 0%, #f7f8f9 85%, rgba(247, 248, 249, 0) 100%);
+    text-align: right;
+}
+
+.jumbotron h1 {
+    padding-right: 5%;
+    font-family: 'Unica One', cursive;
+    color: #4c586f;
+}
+
+.jumbotron p {
+    padding-right: 5%;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.container-login {
+    position:relative;
+    display:inline-block;
+    box-shadow: 2px 2px 5px gray;
+    -moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+    margin-bottom: 5%;
+}
+
+.container-register {
+    position: relative;
+    display: inline-block;
+    box-shadow: 2px 2px 5px gray;
+    -moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+}
+
+.overlay {
+    position:absolute;
+    transition:all .3s ease;
+    opacity:1;
+    transition:0.9s;
+    pointer-events: none;
+    box-shadow: 2px 2px 5px gray;
+    width: 100%;
+    height: 100%;
+}
+.container-login:hover .overlay, .container-register:hover .overlay {
+    opacity:0;
+}
+
+.overlayleft {
+    top:0;
+    left:0px;
+    background: #6B82A8;
+}
+.overlayRight {
+    height:100%;
+    top:0;
+    right:0px;
+    background: #4c586f;
+}
+
+
+.register-input {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 30px;
+}
+
+.cover-text {
+    align-content: center;
+    font-size: 9rem;
+    padding-top: 12rem;
+    color: #f3f3f3;
+}
+
+
+.top-content .description {
+    margin: 20px 0 10px 0;
+}
+
+.top-content .description a:hover,
+.top-content .description a:focus { border-bottom: 1px dotted #19b9e7; }
+
+
+.form-top {
+    overflow: hidden;
+    padding: 0 25px 15px 25px;
+    background: #f3f3f3;
+    -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
+    text-align: left;
+    height: 106px;
+    width: 366px;
+}
+
+.form-top-left {
+    float: left;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.form-top-left h3 { margin-top: 0; }
+
+
+.form-bottom {
+    padding: 15px 25px 30px 25px;
+    background: #eee;
+    -moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+    text-align: left;
+    height: 260px;
+    width: 366px;
+}
+
+.form-bottom form textarea {
+    height: 100px;
+}
+
+.form-bottom form button.btn {
+    width: 100%;
+}
+
+.form-bottom form .input-error {
+    border-color: #19b9e7;
+}
+
+
+.middle-border {
+    min-height: 300px;
+    margin-top: 170px;
+    border-right: 1px solid #ddd;
+}
+
+.existingtext {
+    margin-top: 17%;
+    font-family: 'Kosugi Maru', sans-serif, bold;
+    color: #6B82A8;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>TITLE</title>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../static/css/registerlogin.css" rel="stylesheet"/>
+    <link href="../static/css/header-footer.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Unica+One" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div th:fragment = "navbar">
+    <nav class="navbar navbar-default">
+        <div class="row">
+            <div class="column" style="width: 30%; float: right;">
+                <div class="logotext">
+                    <p>Lit|Local</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="flexrow">
+                    <input class="notbutton" type="submit" action="/logout" value="Logout" style="display: table-cell; vertical-align: middle"/>
+                    <i class="fa fa-bookmark-o" style="color: #4c586f; font-size: 20px; margin-left: 5px;"></i>
+                    <i class="fa fa-bookmark-o" style="color: #4c586f; font-size: 20px;"></i>
+                    <i class="fa fa-bookmark-o" style="color: #4c586f; font-size: 20px;"></i>
+                    <a class="navlink" href="/landing">Home</a>
+                    <a class="navlink" href="/bookshelves">My Bookshelves</a>
+                    <a class="navlink" href="/newreads">New Reads</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="footer" class="row">
+    <div class="footer">
+        <div class="row1">
+            <div class="icon">
+                <a href="mailto:jillnhaake@gmail.com">
+                    <img src="../static/images/if_mail_2581816.png" alt="email"/>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="http://www.linkedin.com/in/jillhaakemoreau">
+                    <img src="../static/images/if_linkedin_2581817%20(1).png" alt="linkedin"/>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="http://www.github.com/jillhkm">
+                    <img src="../static/images/if_github_328033.png" alt="github"/>
+                </a>
+            </div>
+            <div class="icon">
+                <a href="https://www.goodreads.com/user/show/26304861-jill-haake-moreau">
+                    <img src="../static/images/1849631-256.png" alt="goodreads"/>
+                </a>
+            </div>
+        </div>
+        <div class="row1">
+            <p>JillHKM | <a href="./sources.html">Sources</a></p>
+        </div>
+    </div>
+
+    <script src="../static/js/2.1.3.jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</div>
+
+
+</body>
+</html>

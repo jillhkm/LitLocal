@@ -1,0 +1,106 @@
+
+/*nav*/
+
+.navbar {
+    background: #CBC5C1;
+    overflow: hidden;
+    border-radius: 0px; !important;
+    height: 50px;
+}
+
+.logotext{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    text-align: right;
+    line-height: 50px;
+    margin: 0; !important;
+}
+
+.logotext p {
+    text-align: right;
+    padding-right: 10%;
+    font-family: 'Unica One', cursive;
+    color: #4c586f;
+    font-size: 36px;
+}
+
+.notbutton,
+.navlink {
+    outline: none;
+    border: 0px;
+    background-color: transparent;
+    padding:0px 15px;
+    color: #4c586f;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+.notbutton:focus,
+.notbutton:hover,
+.navlink:focus,
+.navlink:hover {
+    color: #eee;
+    background: #e2dcd8;
+    text-decoration: none;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 1%;
+}
+
+.flexrow a {
+    font-size: 16px;
+}
+
+.flexrow i {
+    padding-top: 15px;
+    padding-bottom: 7px;
+    margin-right: 10px;
+}
+
+/*footer*/
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.row1 p {
+    padding: 3px;
+}
+
+.footer {
+    overflow: hidden;
+    background: #CBC5C1;
+    padding: 5px;
+    color: black;
+    bottom: 0px;
+    width: 100%;
+    clear: both;
+    position: relative;
+    z-index: 1;
+}
+
+.footer a {
+    color: black;
+}
+
+.footer a:hover{
+    text-decoration-line: underline;
+}
+
+.icon img {
+    margin: 2px;
+    border-radius: 5px;
+    height: 35px;
+    width: 35px;
+}
+
+.icon img:hover {
+    box-shadow: 2px 2px 5px gray;
+}
