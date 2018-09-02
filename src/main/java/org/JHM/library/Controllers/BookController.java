@@ -25,5 +25,4 @@ public class BookController {
             return "addbook.html";
         }
     }
-
 }

@@ -22,12 +22,11 @@ public class HomeController {
     @Autowired
     UserDAO userdao;
 
-    public Boolean loggedin = true;
-    public int thisuser;
+    static public Boolean loggedin = true;
+    static public int thisuser;
 
-    public boolean getlog() {
-        return this.loggedin;
-    }
+
+    public int getID() {return thisuser;}
 
    ArrayList<NYTbook> fiction = new ArrayList<>();
    ArrayList<NYTbook> nonfiction = new ArrayList<>();
