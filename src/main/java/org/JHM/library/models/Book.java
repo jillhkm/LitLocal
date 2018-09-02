@@ -23,11 +23,11 @@ public class Book {
 
     private String ownstat;
 
-    private String view;
+    private boolean view;
 
     private int rating;
 
-    public Book(String title, String author, String desc, String bookshelf, String ownstat, String view, int rating) {
+    public Book(String title, String author, String desc, String bookshelf, String ownstat, boolean view, int rating) {
         this.title = title;
         this.author = author;
         this.desc = desc;
@@ -83,11 +83,11 @@ public class Book {
         this.ownstat = ownstat;
     }
 
-    public String getView() {
+    public boolean getView() {
         return view;
     }
 
-    public void setView(String view) {
+    public void setView(boolean view) {
         this.view = view;
     }
 

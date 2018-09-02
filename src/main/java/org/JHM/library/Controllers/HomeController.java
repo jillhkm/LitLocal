@@ -2,9 +2,11 @@ package org.JHM.library.Controllers;
 
 import org.JHM.library.models.NYTbook;
 import org.JHM.library.models.User;
+import org.JHM.library.models.data.UserDAO;
 import org.JHM.library.models.data.UserData;
 import org.JHM.library.util.BCrypt;
 import org.JHM.library.util.NYTHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,15 @@ import java.util.ArrayList;
 @Controller
 public class HomeController {
 
-    Boolean loggedin = false;
+    @Autowired
+    UserDAO userdao;
+
+    public Boolean loggedin = true;
+    public int thisuser;
+
+    public boolean getlog() {
+        return this.loggedin;
+    }
 
    ArrayList<NYTbook> fiction = new ArrayList<>();
    ArrayList<NYTbook> nonfiction = new ArrayList<>();
@@ -57,6 +67,7 @@ public class HomeController {
                 boolean pass = BCrypt.checkpw(password, user.getPassword());
                 if (pass) {
                     loggedin = true;
+                    thisuser = userdao.getFirstByEmail(email).getID();
                     return "landing.html";
                 } else {
                     loggedin = false;

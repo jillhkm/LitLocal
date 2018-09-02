@@ -1,10 +1,12 @@
 package org.JHM.library.models.data;
 
+import org.JHM.library.models.Bookshelves;
 import org.JHM.library.models.User;
 import org.JHM.library.util.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +41,12 @@ public class UserData {
             password = BCrypt.hashpw(password, BCrypt.gensalt());
             User newUser = new User(name, email, password);
             userDAO.save(newUser);
+            User userID = userDAO.getFirstByEmail(email);
+            int thisID = userID.getID();
+            Bookshelves one = new Bookshelves(thisID, "Read");
+            Bookshelves two = new Bookshelves(thisID, "To Read");
+            Bookshelves three = new Bookshelves(thisID, "In Progress");
+
             return 0;
         }
     }
