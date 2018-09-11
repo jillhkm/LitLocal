@@ -1,0 +1,23 @@
+<svg width="384" height="512" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="514" width="386" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#3f007f" id="svg_1" d="m336,0l-288,0c-26.51,0 -48,21.49 -48,48l0,464l192,-112l192,112l0,-464c0,-26.51 -21.49,-48 -48,-48zm0,428.43l-144,-83l-144,83l0,-374.43a6,6 0 0 1 6,-6l276,0c3.314,0 6,2.683 6,5.996l0,374.434z"/>
+  <path id="svg_2" d="m-1.5,293.6c7,0 39,-3 38.5,-3.6" opacity="0.5" fill-opacity="null" stroke-width="null" stroke="#3f007f" fill="null"/>
+  <rect id="svg_4" height="227" width="24" y="214.6" x="20.5" stroke-width="null" stroke="#4c586f" fill="#4c586f"/>
+  <rect stroke="#4c586f" id="svg_5" height="439.000011" width="48.000002" y="29.599989" x="0.5" stroke-width="null" fill="#4c586f"/>
+  <ellipse ry="27.5" rx="34.499998" id="svg_7" cy="26.099998" cx="353" stroke-width="null" fill="#4c586f"/>
+  <rect stroke="#4c586f" id="svg_9" height="444.999995" width="57.000002" y="25.599995" x="334.5" stroke-width="null" fill="#4c586f"/>
+  <rect stroke="#4c586f" transform="rotate(90 198,24.600006103515643) " id="svg_10" height="290.999983" width="48.000002" y="-120.899988" x="174" stroke-width="null" fill="#4c586f"/>
+  <rect stroke="#4c586f" transform="rotate(60 67.7291946411133,444.2219543457031) " id="svg_11" height="309.512199" width="48.000002" y="289.465859" x="43.729187" stroke-width="null" fill="#4c586f"/>
+  <rect stroke="#4c586f" transform="rotate(120 312.7291870117188,443.221954345703) " id="svg_12" height="309.512199" width="48.000002" y="288.465859" x="288.729187" stroke-width="null" fill="#4c586f"/>
+  <ellipse ry="44" rx="47.5" id="svg_13" cy="124.6" cx="126" stroke-width="null" fill="none"/>
+  <ellipse ry="16" rx="28" id="svg_16" cy="141.6" cx="147.5" stroke-width="null" fill="none"/>
+  <ellipse ry="19" rx="16" id="svg_17" cy="100.6" cx="104.5" stroke-width="null" fill="none"/>
+  <ellipse ry="27.5" rx="36.999997" id="svg_21" cy="24.099998" cx="35.499999" stroke-width="null" fill="#4c586f"/>
+ </g>
+</svg>

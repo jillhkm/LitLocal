@@ -34,11 +34,11 @@
                         <form role="form" action="/attemptlogin" method="post" class="login-form">
                             <div class="form-group" style="padding-top: 50px;">
                                 <label class="sr-only" for="form-username">Username</label>
-                                <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                <input type="text" name="email" placeholder="Email..." class="form-username form-control" id="form-username">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="form-password">Password</label>
-                                <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
                             </div>
                             <button type="submit" class="btn">Sign in!</button>
                         </form>
@@ -65,22 +65,22 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form role="form" action="" method="post" class="registration-form">
+                        <form role="form" action="/attemptregister" method="post" class="registration-form">
                             <div class="form-group">
-                                <label class="sr-only" for="form-name">Username</label>
+                                <label class="sr-only" for="form-name">Name</label>
                                 <input class="form-control" type="text" name="name" id="form-name" th:placeholder="${rname}"/>
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="form-email">Username</label>
+                                <label class="sr-only" for="form-email">Email</label>
                                 <input class="form-control" type="text" name="email" id="form-email" th:placeholder="${remail}"/>
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="form-password">Username</label>
-                                <input class="form-control" type="password" name="form-password" id="password" th:placeholder="${rpassword}"/>
+                                <label class="sr-only" for="form-password">Password</label>
+                                <input class="form-control" type="password" name="password" id="password" th:placeholder="${rpassword}"/>
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="form-confirm">Username</label>
-                                <input class="form-control" type="password" name="form-confirm" id="form-confirm" th:placeholder="${rconfirm}"/>
+                                <label class="sr-only" for="form-confirm">Confirm Password</label>
+                                <input class="form-control" type="password" name="confirm" id="form-confirm" th:placeholder="${rconfirm}"/>
                             </div>
                             <button type="submit" class="btn">Sign me up!</button>
                         </form>

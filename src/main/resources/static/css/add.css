@@ -35,3 +35,13 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+
+.addform {
+    margin-left: 10%;
+    background-color: rgba(203, 197, 193, 0.62);
+    width: 700px;
+}
+
+.addform label {
+    right-margin: 6px;
+}

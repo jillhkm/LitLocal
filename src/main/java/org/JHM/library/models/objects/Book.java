@@ -1,9 +1,9 @@
-package org.JHM.library.models;
+package org.JHM.library.models.objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import java.sql.Date;
 
 @Entity
 public class Book {
@@ -12,32 +12,40 @@ public class Book {
     @GeneratedValue
     private int ID;
 
-    @NotNull
     private String title;
+
+    private int UserID;
 
     private String author;
 
-    private String desc;
+    private String description;
 
     private String bookshelf;
 
     private String ownstat;
 
-    private boolean view;
+    private String view;
 
     private int rating;
 
-    public Book(String title, String author, String desc, String bookshelf, String ownstat, boolean view, int rating) {
+    private String haveread;
+
+    private java.sql.Date rdate;
+
+    public Book(String title, int UserID, String author, String description, String bookshelf, String ownstat, String view, int rating, String haveread, java.sql.Date rdate) {
         this.title = title;
+        this.UserID = UserID;
         this.author = author;
-        this.desc = desc;
+        this.description = description;
         this.bookshelf = bookshelf;
         this.ownstat = ownstat;
         this.view = view;
         this.rating = rating;
+        this.haveread = haveread;
+        this.rdate = rdate;
     }
 
-    public Book(){}
+    public Book() { }
 
     public int getID() {
         return this.ID;
@@ -51,6 +59,14 @@ public class Book {
         this.title = title;
     }
 
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -59,12 +75,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getdescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getBookshelf() {
@@ -83,11 +99,11 @@ public class Book {
         this.ownstat = ownstat;
     }
 
-    public boolean getView() {
+    public String getView() {
         return view;
     }
 
-    public void setView(boolean view) {
+    public void setView(String view) {
         this.view = view;
     }
 
@@ -98,4 +114,16 @@ public class Book {
     public void setRating(int rating) {
         this.rating = rating;
     }
+
+    public Date getrdate() {
+        return rdate;
+    }
+
+    public void setrdate(Date rdate) {
+        this.rdate = rdate;
+    }
+
+    public void setHaveread(String haveread) {this.haveread = haveread;}
+
+    public String getHaveread() {return this.haveread;}
 }

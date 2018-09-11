@@ -1,4 +1,4 @@
-package org.JHM.library.models;
+package org.JHM.library.models.objects;
 
 public class NYTbook {
 

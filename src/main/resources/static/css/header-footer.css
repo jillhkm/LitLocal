@@ -79,11 +79,15 @@
     background: #CBC5C1;
     padding: 5px;
     color: black;
-    bottom: 0px;
     width: 100%;
     clear: both;
-    position: relative;
     z-index: 1;
+
+}
+
+.row-footer {
+    position: absolute;
+    bottom: 0px;
 }
 
 .footer a {

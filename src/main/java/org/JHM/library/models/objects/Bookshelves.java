@@ -1,4 +1,4 @@
-package org.JHM.library.models;
+package org.JHM.library.models.objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Bookshelves {
 
-    private int UserID;
+    private int userID;
 
     private String Bookshelf;
 
@@ -16,16 +16,18 @@ public class Bookshelves {
     private int ID;
 
     public Bookshelves(int UserID, String bookshelf) {
-        this.UserID = UserID;
+        this.userID = UserID;
         this.Bookshelf = bookshelf;
     }
+
+    public Bookshelves() {}
 
     public int getID() {
         return ID;
     }
 
     public int getUserID() {
-        return UserID;
+        return userID;
     }
 
     public String getBookshelf() {
@@ -36,7 +38,7 @@ public class Bookshelves {
         Bookshelf = bookshelf;
     }
 
-    public void setUserID(int userID) {
-        UserID = userID;
+    public void setUserID(int UserID) {
+        this.userID = UserID;
     }
 }

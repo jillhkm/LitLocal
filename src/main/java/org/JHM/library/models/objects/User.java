@@ -1,4 +1,4 @@
-package org.JHM.library.models;
+package org.JHM.library.models.objects;
 
 
 import javax.persistence.Entity;
@@ -31,9 +31,7 @@ public class User {
 
     public String getPassword() {   return password;    }
 
-    public void setPassword(String Password) {
-        this.password = (String) password;
-    }
+    public void setPassword(String Password) {  this.password = Password;   }
 
     public String getName() {   return name;    }
 

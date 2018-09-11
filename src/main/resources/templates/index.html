@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>TITLE</title>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../static/css/registerlogin.css" rel="stylesheet"/>
+    <link href="../static/css/header-footer.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Unica+One" rel="stylesheet">
+
+
+</head>
+<body>
+    <div th:replace="fragments::navbar">Header</div>
+
+    <div id="accordion">
+        <div class="card" th:each="bookshelf in ${bookshelves}">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" th:text="${bookshelf}">
+                        Bookshelf
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <table>
+                        <tr th:each="book in ${bookshelf}">
+                            <th th:text="${book.title}">title</th>
+                            <td th:text="${book.author}">author</td>
+                            <td th:text="${book.desc}">desc</td>
+                            <td th:text="${book.rating}">rating</td>
+                            <td th:text="${book.date}">date read</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments::footer">Footer</div>
+</body>

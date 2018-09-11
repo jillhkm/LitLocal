@@ -2,7 +2,7 @@ package org.JHM.library.util;
 
 
 
-import org.JHM.library.models.NYTbook;
+import org.JHM.library.models.objects.NYTbook;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

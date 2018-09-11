@@ -1,9 +1,11 @@
 package org.JHM.library.Controllers;
 
-import org.JHM.library.models.NYTbook;
-import org.JHM.library.models.User;
+import org.JHM.library.models.data.BookshelvesDAO;
+import org.JHM.library.models.objects.Bookshelves;
+import org.JHM.library.models.objects.NYTbook;
+import org.JHM.library.models.objects.User;
 import org.JHM.library.models.data.UserDAO;
-import org.JHM.library.models.data.UserData;
+import org.JHM.library.models.utilities.UserData;
 import org.JHM.library.util.BCrypt;
 import org.JHM.library.util.NYTHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -22,11 +23,12 @@ public class HomeController {
     @Autowired
     UserDAO userdao;
 
+    @Autowired
+    BookshelvesDAO bookshelvedao;
+
+
     static public Boolean loggedin = true;
-    static public int thisuser;
-
-
-    public int getID() {return thisuser;}
+    static public int thisuser = 1;
 
    ArrayList<NYTbook> fiction = new ArrayList<>();
    ArrayList<NYTbook> nonfiction = new ArrayList<>();
@@ -43,7 +45,7 @@ public class HomeController {
     @GetMapping(value ="")
     public String login(Model model) {
         if (loggedin) {
-            return "redirect: ";
+            return "redirect:/addbook";
         } else {
             model.addAttribute("rcover", rcover);
             model.addAttribute("rname", nameLabel);
@@ -60,14 +62,15 @@ public class HomeController {
     @PostMapping(value="/attemptlogin")
     public String login(@RequestParam String email, @RequestParam String password) {
         ArrayList<User> users = new ArrayList<>();
+        users = userdao.getAllByEmail(email);
         for (User user : users) {
-            if (user.getEmail() == email ) {
+            if (user.getEmail().equals(email)) {
                 //check if password is same
                 boolean pass = BCrypt.checkpw(password, user.getPassword());
                 if (pass) {
                     loggedin = true;
-                    thisuser = userdao.getFirstByEmail(email).getID();
-                    return "landing.html";
+                    thisuser = user.getID();
+                    return "redirect: /addbook";
                 } else {
                     loggedin = false;
                     goodlogin = false;
@@ -82,45 +85,73 @@ public class HomeController {
             }
         }
         //if error return incorrect login (Should not reach this point)
-        loggedin = true;
+        loggedin = false;
         goodlogin = false;
         badlogin = true;
-        return "redirect";
+        return "redirect: ";
     }
 
 
-    @RequestMapping(value="attemptregister", method = RequestMethod.POST)
+    @PostMapping(value="/attemptregister")
     public String processNewUser(
             @RequestParam String name,
             @RequestParam String email,
             @RequestParam String password,
             @RequestParam String confirm
-    )
-    {
+    ) {
         int results;
-        results = UserData.add(name, email, password, confirm);
-        switch (results) {
-            case 0: loggedin = true;
-                    return "redirect: ";
-            case 1: emailLabel = UserData.geterr();
+        UserData userData = new UserData();
+        ArrayList<User> emails = new ArrayList<User>();
+        //check if user exists
+        emails = userdao.getAllByEmail(email);
+        if (!(emails.isEmpty())) {
+            return "redirect:/existinguser";
+        } else {
+            results = userData.add(name, email, password, confirm);
+            switch (results) {
+                case 0:
+                    password = BCrypt.hashpw(password, BCrypt.gensalt());
+                    User newUser = new User(name, email, password);
+                    userdao.save(newUser);
+                    User userID = userdao.getFirstByEmail(email);
+                    thisuser = userID.getID();
+
+                    //how can I move this to its own class?
+                    //autowire won't work with static, how to make nonstatic class to call here?
+                    ArrayList<Bookshelves> main = new ArrayList<>();
+                    Bookshelves one = new Bookshelves(thisuser, "Read");
+                    Bookshelves two = new Bookshelves (thisuser, "To Read");
+                    Bookshelves three = new Bookshelves(thisuser, "Currently Reading");
+                    main.add(one);
+                    main.add(two);
+                    main.add(three);
+                    bookshelvedao.saveAll(main);
+
+
+                    loggedin = true;
+                    return "redirect:/addbook";
+                case 1:
+                    emailLabel = UserData.geterr();
                     passwordLabel = "Password";
                     confirmLabel = "Confirm Password";
                     rcover = false;
                     return "redirect: ";
-            case 2: passwordLabel = UserData.geterr();
-                    emailLabel="E-Mail";
+                case 2:
+                    passwordLabel = UserData.geterr();
+                    emailLabel = "E-Mail";
                     confirmLabel = "Confirm Password";
                     rcover = false;
                     return "redirect: ";
-            case 3: passwordLabel = UserData.geterr();
+                case 3:
+                    passwordLabel = UserData.geterr();
                     confirmLabel = UserData.geterr();
                     emailLabel = "E-Mail";
                     rcover = false;
                     return "redirect: ";
-            case 4: return "redirect: /existinguser";
-            default: return "redirect: ";
+                default:
+                    return "redirect: ";
+            }
         }
-
     }
 
 
