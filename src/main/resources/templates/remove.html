@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{css/header-footer.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fontgraphics.css}"/>
+
+</head>
+<body>
+    <div th:replace="fragments::navbar">Header</div>
+
+    <form method="post" action="/removebooks">
+        <div class="table-responsive">
+            <table class="table-striped" th:each="entry : ${bookshelflist}">
+                <thead class="thead-light">
+                    <tr>
+                        <th th:text="${entry.key}" style="column-span: all">Bookshelf Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Remove?
+                        </th>
+                    </tr>
+                    <div  th:each="Book : ${entry.value}" class="checkbox">
+                        <tr>
+                            <td th:text="${Book.title}" style="width:300px"> Title</td>
+                            <td th:text="${Book.author}" style="width:300px">Author</td>
+                            <td th:text="${Book.description}" style="width:500px; height: fit-content;">Description</td>
+                            <td th:text="${Book.haveread}" style="width:200px">Status</td>
+                            <td><input type="checkbox" th:value="${Book.title}" name="bookids" th:id="${Book.title}"/></td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+
+            <button type="submit">Remove Selected Books</button>
+    </form>
+
+    <div th:replace="fragments::footer">Footer</div>
+
+</body>

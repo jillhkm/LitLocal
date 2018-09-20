@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:fragment="head">
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<head>
 
-    <title>TITLE</title>
+    <meta charset="UTF-8">
+    <title>Index</title>
 
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../static/css/registerlogin.css" rel="stylesheet"/>
-    <link href="../static/css/header-footer.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Unica+One" rel="stylesheet">
-
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{css/header-footer.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fontgraphics.css}"/>
 
 </head>
 <body>
     <div th:replace="fragments::navbar">Header</div>
 
-    <div id="accordion">
-        <div class="card" th:each="bookshelf in ${bookshelves}">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" th:text="${bookshelf}">
-                        Bookshelf
-                    </button>
-                </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <table>
-                        <tr th:each="book in ${bookshelf}">
-                            <th th:text="${book.title}">title</th>
-                            <td th:text="${book.author}">author</td>
-                            <td th:text="${book.desc}">desc</td>
-                            <td th:text="${book.rating}">rating</td>
-                            <td th:text="${book.date}">date read</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <div class="table-responsive">
+        <table class="table-striped" th:each="entry : ${bookshelflist}">
+            <thead class="thead-light">
+                <tr>
+                    <th th:text="${entry.key}" style="column-span: all">Bookshelf Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Author
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        More Info.
+                    </th>
+                </tr>
+                <tr th:each="Book : ${entry.value}">
+                    <td th:text="${Book.title}" style="width:300px"> Title</td>
+                    <td th:text="${Book.author}" style="width:300px">Author</td>
+                    <td th:text="${Book.description}" style="width:500px; height: fit-content;">Description</td>
+                    <td th:text="${Book.haveread}" style="width:200px">Status</td>
+                    <td><a th:href="@{|/book/${Book.title}|}"><img style="width: 25px; align-content: center" th:src="@{/images/if_Book_605510.png}"/></a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
+
     <div th:replace="fragments::footer">Footer</div>
+
 </body>

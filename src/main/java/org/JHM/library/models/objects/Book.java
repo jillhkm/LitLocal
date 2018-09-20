@@ -14,7 +14,7 @@ public class Book {
 
     private String title;
 
-    private int UserID;
+    private int userid;
 
     private String author;
 
@@ -32,9 +32,9 @@ public class Book {
 
     private java.sql.Date rdate;
 
-    public Book(String title, int UserID, String author, String description, String bookshelf, String ownstat, String view, int rating, String haveread, java.sql.Date rdate) {
+    public Book(String title, int userid, String author, String description, String bookshelf, String ownstat, String view, int rating, String haveread, java.sql.Date rdate) {
         this.title = title;
-        this.UserID = UserID;
+        this.userid = userid;
         this.author = author;
         this.description = description;
         this.bookshelf = bookshelf;
@@ -47,9 +47,7 @@ public class Book {
 
     public Book() { }
 
-    public int getID() {
-        return this.ID;
-    }
+    public int getID() {     return ID;    }
 
     public String getTitle() {
         return title;
@@ -59,12 +57,12 @@ public class Book {
         this.title = title;
     }
 
-    public int getUserID() {
-        return UserID;
+    public int getuserid() {
+        return userid;
     }
 
-    public void setUserID(int userID) {
-        UserID = userID;
+    public void setuserid(int userid) {
+        this.userid = userid;
     }
 
     public String getAuthor() {
@@ -73,14 +71,6 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public String getdescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getBookshelf() {
@@ -126,4 +116,12 @@ public class Book {
     public void setHaveread(String haveread) {this.haveread = haveread;}
 
     public String getHaveread() {return this.haveread;}
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

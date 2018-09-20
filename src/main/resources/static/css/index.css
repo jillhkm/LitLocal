@@ -1,0 +1,20 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background: linear-gradient(#fdfeff, rgba(0,0,0,0.2)),url("../images/bookcase.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.table-striped tr {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.table-striped th {
+    margin-right: 7px;
+}
+
+.table-striped td {
+    margin-right: 10px;
+    column-width: fit-content;
+}

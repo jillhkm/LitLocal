@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:checked="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add A Book</title>
@@ -161,7 +161,7 @@
                                             <!--title input-->
                                             <input name="title" id="title" type="text" class="form-control k-textbox"
                                                    data-role="text" required="required"
-                                                    th:text="${title}">
+                                                    th:value="${title}">
                                         </div>
                                     </div>
 
@@ -172,7 +172,7 @@
                                         <div class="controls col-sm-9">
                                             <!--author input-->
                                             <input id="author" name="author" type="text" class="form-control k-textbox"
-                                                   data-role="text" th:text="${author}">
+                                                   data-role="text" th:value="${author}">
                                         </div>
                                     </div>
 

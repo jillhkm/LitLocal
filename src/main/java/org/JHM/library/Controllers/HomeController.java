@@ -45,7 +45,7 @@ public class HomeController {
     @GetMapping(value ="")
     public String login(Model model) {
         if (loggedin) {
-            return "redirect:/addbook";
+            return "redirect:/index";
         } else {
             model.addAttribute("rcover", rcover);
             model.addAttribute("rname", nameLabel);

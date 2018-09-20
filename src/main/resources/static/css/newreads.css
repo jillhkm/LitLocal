@@ -1,10 +1,3 @@
-body {
-    font-family: 'Roboto Condensed', sans-serif;
-    background: linear-gradient(#fdfeff, rgba(0, 0, 0, 0.2)), url("../images/bookcase.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 .tableouter {
     background: rgba(211, 211, 211, 0.71);
     width: 800px;
@@ -36,13 +29,9 @@ html {
     height: 100%;
 }
 
-
-.addform {
-    margin-left: 10%;
-    background-color: rgba(203, 197, 193, 0.62);
-    width: 700px;
-}
-
-.addform label {
-    right-margin: 6px;
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background: linear-gradient(#fdfeff, rgba(0,0,0,0.2)),url("../images/bookcase.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }

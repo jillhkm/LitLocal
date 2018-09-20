@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add A Book</title>
+
+    <link th:href="@{css/add.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{css/header-footer.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fontgraphics.css}"/>
+
+</head>
+<body>
+
+
+<div th:replace="fragments :: navbar"></div>
+
+<div>
+    <table>
+        <thead>
+            <th th:text="${book.title}" style="column-span:all">Title</th>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Author: </th>
+            <td th:text="${book.title}">Author</td>
+        </tr>
+        <tr>
+            <th>Description: </th>
+            <td th:text="${book.description}">Description</td>
+        </tr>
+        <tr>
+            <th>Bookshelf: </th>
+            <td th:text="${book.bookshelf}">bookshelf</td>
+        </tr>
+        <tr>
+            <th>Completion Status:</th>
+            <td th:text="${book.haveread}">Completed</td>
+        </tr>
+        <tr th:if="${book.haveread == read}">
+            <th>Date Read:</th>
+            <td th:text="${book.date}">Date</td>
+        </tr>
+        <tr>
+            <th>Rating: </th>
+            <td th:text="${book.title}">Rating</td>
+        </tr>
+        <tr>
+            <th>Ownership Status: </th>
+            <td th:text="${book.ownstat}">Ownership</td>
+        </tr>
+        <tr>
+            <th>View: </th>
+            <td th:text="${book.view}">Title</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="fragments :: footer">footer</div>
+
+
+</body>
+</html>
