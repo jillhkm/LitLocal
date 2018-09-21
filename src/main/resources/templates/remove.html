@@ -17,11 +17,11 @@
     <div th:replace="fragments::navbar">Header</div>
 
     <form method="post" action="/removebooks">
-        <div class="table-responsive">
+        <div class="table-responsive" style="margin-left: 50px; background: #e2dcd8;">
             <table class="table-striped" th:each="entry : ${bookshelflist}">
                 <thead class="thead-light">
                     <tr>
-                        <th th:text="${entry.key}" style="column-span: all">Bookshelf Title</th>
+                        <th th:text="${entry.key}" style="column-span: all; text-align: left; margin-top: 10%; padding-top: 5%; font-size: 20px">Bookshelf Title</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -8,13 +8,37 @@ body{
 .table-striped tr {
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: 15px;
 }
 
 .table-striped th {
     margin-right: 7px;
+
 }
 
 .table-striped td {
     margin-right: 10px;
     column-width: fit-content;
+}
+
+.table-responsive tr {
+    min-width: 40px;
+}
+
+.table-responsive {
+    margin-left: 50px;
+    background: rgba(211, 211, 211, 0.71);
+    width: 950px;
+}
+
+.table-responsive tr:hover {
+    background: #bfd5f5;
+}
+
+.table-responsive tr:nth-child(odd):hover {
+    background: #bfd5f5;
+}
+
+.table-striped tr:nth-child(odd) {
+    background: rgba(245, 245, 245, 0.75);
 }

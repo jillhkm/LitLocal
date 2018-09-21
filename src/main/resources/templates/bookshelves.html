@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{css/header-footer.css}"/>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fontgraphics.css}"/>
+
+</head>
+<body>
+    <div th:replace="fragments::navbar">Header</div>
+
+    <form class="form-inline" action="/addshelf" method="post">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="bookshelf" class="sr-only">Add Bookshelf: </label>
+            <input type="text" class="form-control" name="bookshelf" id="bookshelf" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Add</button>
+    </form>
+
+    <div class="bookshelf-list">
+        <form action="/deletebookshelf" method="/post">
+           <table>
+               <tr th:each="bookshelf : ${bookshelves}">
+                   <td><h1 th:text="${bookshelf}" th:href="@{|/bookshelves/${bookshelf}|}"></h1></td>
+                   <td><button type="submit" th:value="${bookshelf}" name="bookshelfdel">Remove Bookshelf</button></td>
+               </tr>
+           </table>
+        </form>
+    </div>
+
+
+    <div th:replace="fragments::footer">Footer</div>
+
+</body>

@@ -83,6 +83,8 @@
     width: 100%;
     clear: both;
     z-index: 1;
+    position: absolute;
+    bottom: 0px;
 
 }
 

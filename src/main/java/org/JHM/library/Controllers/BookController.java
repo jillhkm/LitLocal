@@ -4,7 +4,6 @@ import org.JHM.library.models.data.BookDAO;
 import org.JHM.library.models.data.BookshelvesDAO;
 import org.JHM.library.models.objects.Book;
 import org.JHM.library.models.objects.Bookshelves;
-import org.JHM.library.models.objects.NYTbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -191,9 +190,65 @@ public class BookController {
 
     @GetMapping(value="/book/{title}")
     public String viewBook(Model model, @PathVariable("title") String title) {
-        Book thisbook = bookdao.getFirstByTitleAndUserid(title, HomeController.thisuser);
-        model.addAttribute(thisbook);
-        return "bookview.html";
+        if (!HomeController.loggedin) {
+            return "redirect: ";
+        } else {
+            Book thisbook = bookdao.getFirstByTitleAndUserid(title, HomeController.thisuser);
+            model.addAttribute(thisbook);
+            return "bookview.html";
+        }
     }
 
+    @GetMapping(value="/bookshelves")
+    public String viewShelves(Model model){
+        if (!HomeController.loggedin) {
+            return "redirect: ";
+        } else {
+            //get bookshelves
+            ArrayList<Bookshelves> shelflist = new ArrayList<>();
+            shelflist = bookshelvesdao.getBookshelvesByUserID(HomeController.thisuser);
+
+            ArrayList<String> stringList = new ArrayList<String>();
+            for (Bookshelves item : shelflist) {
+                stringList.add(item.getBookshelf());
+            }
+
+            model.addAttribute("bookshelves", stringList);
+            return "bookshelves.html";
+        }
+    }
+
+    @PostMapping(value="/deletebookshelf")
+    public String removeShelf(@RequestParam String bookshelfdel) {
+        //see if bookshelf is empty
+        ArrayList<Book> bookshelfbook = new ArrayList<>();
+        bookshelfbook = bookdao.getBooksByBookshelfAndUserid(bookshelfdel, HomeController.thisuser);
+        if (bookshelfbook.isEmpty()) {
+            bookshelvesdao.deleteBookshelvesByBookshelfAndAndUserID(bookshelfdel, HomeController.thisuser);
+            return "redirect:/bookshelves.html";
+        } else {
+            return "bookshelferr.html";
+        }
+    }
+
+    @GetMapping(value="/bookshelves/{bookshelf}")
+    public String seeShelf(Model model, @PathVariable("bookshelf") String bookshelf) {
+        if (!HomeController.loggedin) {
+            return "redirect: ";
+        } else {
+
+            ArrayList<Book> booklist = new ArrayList<>();
+            booklist = bookdao.getBooksByBookshelfAndUserid(bookshelf, HomeController.thisuser);
+            model.addAttribute("bookshelf", bookshelf);
+            model.addAttribute("bookshelfbooks", booklist);
+            return "individualshelf.html";
+        }
+    }
+
+    @PostMapping(value="/addshelf")
+    public String addbookshelf(@RequestParam String bookshelf) {
+        Bookshelves thisBookshelf = new Bookshelves(HomeController.thisuser, bookshelf);
+        bookshelvesdao.save(thisBookshelf);
+        return "redirect:/bookshelves.html";
+    }
 }

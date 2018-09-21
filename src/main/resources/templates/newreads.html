@@ -41,7 +41,7 @@
                         <p th:text="${NYTbook.author}"></p>
                         <p th:text="${NYTbook.desc}"></p>
                     </td>
-                    <td>
+                    <td style="padding-right: 20px;">
                         <form method="post" action="/addrecbook">
                             <button type="submit" th:value=" ${NYTbook.title} + ', ' + ${NYTbook.author} +', '+ ${NYTbook.desc} " name="nytbook">Add Book to Shelf</button>
                         </form>
@@ -64,6 +64,11 @@
                     <p th:text="${NYTbooknon.title}"></p>
                     <p th:text="${NYTbooknon.author}"></p>
                     <p th:text="${NYTbooknon.desc}"></p>
+                </td>
+                <td style="padding-right: 20px;">
+                    <form method="post" action="/addrecbook">
+                        <button type="submit" th:value=" ${NYTbooknon.title} + ', ' + ${NYTbooknon.author} +', '+ ${NYTbooknon.desc} " name="nytbook">Add Book to Shelf</button>
+                    </form>
                 </td>
             </tr>
         </table>

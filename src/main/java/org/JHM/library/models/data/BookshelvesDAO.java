@@ -15,4 +15,6 @@ import java.util.ArrayList;
 public interface BookshelvesDAO extends CrudRepository<Bookshelves, Integer> {
 
     ArrayList<Bookshelves> getBookshelvesByUserID(int UserID);
+
+    void deleteBookshelvesByBookshelfAndAndUserID(String bookshelf, int UserID);
 }

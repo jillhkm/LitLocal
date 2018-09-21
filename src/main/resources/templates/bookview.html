@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Add A Book</title>
 
-    <link th:href="@{css/add.css}" rel="stylesheet"/>
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{css/header-footer.css}"/>
     <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
@@ -13,13 +13,14 @@
 </head>
 <body>
 
-
 <div th:replace="fragments :: navbar"></div>
 
 <div>
     <table>
         <thead>
-            <th th:text="${book.title}" style="column-span:all">Title</th>
+            <tr>
+                <th th:text="${book.title}" style="column-span:all">Title</th>
+            </tr>
         </thead>
         <tbody>
         <tr>

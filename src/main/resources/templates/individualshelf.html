@@ -17,10 +17,10 @@
     <div th:replace="fragments::navbar">Header</div>
 
     <div class="table-responsive" style="margin-left: 50px; background: #e2dcd8;">
-        <table class="table-striped" th:each="entry : ${bookshelflist}">
+        <table class="table-striped">
             <thead class="thead-light">
                 <tr>
-                    <th th:text="${entry.key}" style="column-span: all; text-align: left; margin-top: 10%; padding-top: 5%; font-size: 20px">Bookshelf Title</th>
+                    <th th:text="${bookshelf}" style="column-span: all; text-align: left; margin-top: 10%; padding-top: 5%; font-size: 20px">Bookshelf Title</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
                         More Info.
                     </th>
                 </tr>
-                <tr th:each="Book : ${entry.value}">
+                <tr th:each="Book : ${bookshelflbooks}">
                     <td th:text="${Book.title}" style="width:300px"> Title</td>
                     <td th:text="${Book.author}" style="width:300px">Author</td>
                     <td th:text="${Book.description}" style="width:500px; height: fit-content;">Description</td>
