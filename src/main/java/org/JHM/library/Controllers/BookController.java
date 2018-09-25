@@ -218,18 +218,20 @@ public class BookController {
         }
     }
 
+    /*
     @PostMapping(value="/deletebookshelf")
     public String removeShelf(@RequestParam String bookshelfdel) {
         //see if bookshelf is empty
         ArrayList<Book> bookshelfbook = new ArrayList<>();
         bookshelfbook = bookdao.getBooksByBookshelfAndUserid(bookshelfdel, HomeController.thisuser);
         if (bookshelfbook.isEmpty()) {
-            bookshelvesdao.deleteBookshelvesByBookshelfAndAndUserID(bookshelfdel, HomeController.thisuser);
+            bookshelvesdao.deleteBookshelvesByBookshelfAndUserID(bookshelfdel, HomeController.thisuser);
             return "redirect:/bookshelves.html";
         } else {
             return "bookshelferr.html";
         }
     }
+    */
 
     @GetMapping(value="/bookshelves/{bookshelf}")
     public String seeShelf(Model model, @PathVariable("bookshelf") String bookshelf) {

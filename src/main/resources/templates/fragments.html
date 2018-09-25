@@ -28,7 +28,9 @@
             </div>
             <div class="column">
                 <div class="flexrow">
-                    <input class="notbutton" type="submit" action="/logout" value="Logout" style="display: table-cell; vertical-align: middle"/>
+                    <form action="/logout" method="post">
+                        <input class="notbutton" type="submit" value="Logout" style="display: table-cell; vertical-align: middle"/>
+                    </form>
                     <img class="fa fa-bookmark-o" th:src="@{/images/bookmark.svg}" style=" height: 25px; margin-top: 12px; margin-left: 10px; margin-right: 10px;"/>
                     <img class="fa fa-bookmark-o" th:src="@{/images/bookmark.svg}" style=" height: 25px; margin-top: 12px;margin-right: 10px;"/>
                     <img class="fa fa-bookmark-o" th:src="@{/images/bookmark.svg}" style=" height: 25px;margin-top: 12px; margin-right: 10px;"/>

@@ -15,9 +15,9 @@ public class Bookshelves {
     @GeneratedValue
     private int ID;
 
-    public Bookshelves(int UserID, String bookshelf) {
+    public Bookshelves(int UserID, String Bookshelf) {
         this.userID = UserID;
-        this.Bookshelf = bookshelf;
+        this.Bookshelf = Bookshelf;
     }
 
     public Bookshelves() {}
@@ -30,15 +30,15 @@ public class Bookshelves {
         return userID;
     }
 
+    public void setUserID(int UserID) {
+        this.userID = UserID;
+    }
+
     public String getBookshelf() {
         return Bookshelf;
     }
 
     public void setBookshelf(String bookshelf) {
         Bookshelf = bookshelf;
-    }
-
-    public void setUserID(int UserID) {
-        this.userID = UserID;
     }
 }

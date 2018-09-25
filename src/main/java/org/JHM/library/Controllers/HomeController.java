@@ -178,5 +178,12 @@ public class HomeController {
         }
     }
 
+    @PostMapping(value="/logout")
+    public String logout() {
+        loggedin = false;
+        thisuser = 0;
+        return "redirect: ";
+    }
+
 }
 

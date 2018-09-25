@@ -16,5 +16,5 @@ public interface BookshelvesDAO extends CrudRepository<Bookshelves, Integer> {
 
     ArrayList<Bookshelves> getBookshelvesByUserID(int UserID);
 
-    void deleteBookshelvesByBookshelfAndAndUserID(String bookshelf, int UserID);
+   // void deleteBookshelvesByBookshelfAndUserID (String bookshelf, int UserID);
 }
